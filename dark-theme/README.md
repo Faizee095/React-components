@@ -1,0 +1,1 @@
+Created a toggle to switch to dark theme using styled components.
