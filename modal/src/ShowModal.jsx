@@ -1,26 +1,20 @@
 import React, { useEffect } from "react";
 import "./App.css";
+import { createPortal } from "react-dom";
 
-const ShowModal = ({ closeModal }) => {
-
-    useEffect(() => {
-        document.body.style.overflowY= 'hidden';
-        return () => {document.body.style.overflowY= 'scroll'};
-    })
-  return (
+const ShowModal = ({ closeModal, children }) => {
+  useEffect(() => {
+    document.body.style.overflowY = "hidden";
+    return () => {
+      document.body.style.overflowY = "scroll";
+    };
+  });
+  return createPortal(
     <>
       <div className="overlay" onClick={closeModal}></div>
-      <div className="modal">
-        <button className="btn" onClick={closeModal}>
-          X
-        </button>
-        <p className="">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum cum velit
-          fuga culpa minima enim esse atque dolores. Nihil, mollitia culpa. Aut
-          labore fuga voluptatum pariatur eos a expedita iusto?
-        </p>
-      </div>
-    </>
+      <div className="modal">{children}</div>
+    </>,
+    document.querySelector(".myPortalModalDiv")
   );
 };
 

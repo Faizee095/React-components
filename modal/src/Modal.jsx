@@ -8,11 +8,24 @@ const Modal = () => {
     setShow(false);
   };
 
+  const mainModal = (
+    <ShowModal closeModal={closeModal}>
+        <button className="btn" onClick={closeModal}>
+          X
+        </button>
+        <p className="">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum cum velit
+          fuga culpa minima enim esse atque dolores. Nihil, mollitia culpa. Aut
+          labore fuga voluptatum pariatur eos a expedita iusto?
+        </p>
+    </ShowModal>
+  )
+
   return (
     <>
       <div>
         <button onClick={() => setShow(true)}>Open Modal</button>
-        {show && <ShowModal closeModal={closeModal} />}
+        {show && mainModal}
       </div>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit,
